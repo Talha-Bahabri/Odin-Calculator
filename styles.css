@@ -56,7 +56,16 @@
     padding: 10px;
 }
 
+.operation { 
+    color: indianred;
+}
+
+.userInput {
+    color: blue;
+}
 .btnCLR{
     color: hotpink;
 }
+
+
 

@@ -1,15 +1,18 @@
-function buttonsClicked() {
-    const btnCLR = document.querySelector(`.btnCLR`);
+const operationSelector = document.querySelector(`.operation`);
+const userInputSelector = document.querySelector(`.userInput`);
+
     
-    btnCLR.addEventListener("Click" , () => {
-        console.log(`hehe`)
+
+//From this point i'll add all the  btns
+
+const btnCLR = document.querySelector(`.btnCLR`);
+    
+    btnCLR.addEventListener("click" , () => {
+        operationSelector.textContent(` d`);
+        userInputSelector.textContent(` d`);
 
       });
 
 
 
-}
-
-buttonsClicked() ;
-
-
+//here the btns funtions finishes.
