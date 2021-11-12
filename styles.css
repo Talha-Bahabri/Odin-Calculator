@@ -1,7 +1,7 @@
 
   
   .conainer {
-    display: flex;
+    display: grid;
     justify-content: center;
     flex-direction: column;
     background-color: green;
@@ -9,16 +9,14 @@
 
 
 .display {
-    display: flex;
+    display: grid;
     justify-content: center;
 }
 
 .calculator{
-    display: flex;
-    flex-grow: 0;
-    flex-shrink: 0;
-    flex-basis: 100%;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 2.5fr 2.5fr 1fr 1fr ;
+    grid-template-rows: 1fr 1fr 1fr 1fr ;
     justify-content: center;
     align-items: center;
 
@@ -26,14 +24,14 @@
 
     background-color: gray;
     gap: 5px;
-    /* padding: 200px;
-    margin: 200px; */
+
     margin-left: 20%;
     margin-right: 20%;
-    margin-top: 20px;
+    margin-top: 20%;
 
 
-    border-style: dashed;
+    border: 2px black solid;
+    border-radius: 10px;
 }
 
 .conainer > * :nth-child(6) {
@@ -43,7 +41,8 @@
 
 
 .buttons{
-    flex-basis: 25%;
+    /* flex-basis: 25%; */
+    margin: 3px;
 
     font-size:  15px;
     padding: 10px;
