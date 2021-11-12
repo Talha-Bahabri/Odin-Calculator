@@ -3,20 +3,28 @@
   .conainer {
     display: grid;
     justify-content: center;
-    flex-direction: column;
+    /* flex-direction: column; */
     background-color: green;
 }
 
 
 .display {
     display: grid;
-    justify-content: center;
+    justify-content: end;
+    padding-right: 10px;
+    background-color:  rgb(255, 255, 255);
+    border: 2px black solid;
+    border-radius: 10px;
+
+    max-width: 20fr;
+    min-width: 20fr;
+    
 }
 
 .calculator{
     display: grid;
-    grid-template-columns: 2.5fr 2.5fr 1fr 1fr ;
-    grid-template-rows: 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 6ch 6ch 6ch 6ch ;
+    grid-template-rows: 6ch 6ch 6ch 6ch;
     justify-content: center;
     align-items: center;
 
@@ -25,9 +33,10 @@
     background-color: gray;
     gap: 5px;
 
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 20%;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+    margin-bottom: 10px;
+
 
 
     border: 2px black solid;
@@ -41,9 +50,13 @@
 
 
 .buttons{
-    /* flex-basis: 25%; */
     margin: 3px;
 
     font-size:  15px;
     padding: 10px;
 }
+
+.btnCLR{
+    color: hotpink;
+}
+
