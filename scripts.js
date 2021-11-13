@@ -5,7 +5,7 @@
 
     let tempValuesInput = `` ;
     let tempOperandInput = `` ;
-    let inputsArray = [0];
+    let inputsArray = [];
     
 //From this point i'll add all the  btns
 
@@ -55,7 +55,7 @@
             }
 
         
-            if(typeof inputsArray.at(-1) == `number`) {
+            if(typeof inputsArray.at(-1) == `number` || tempValuesInput != '') {
                 console.log(`this is a NUMBERRRRRRR ,,, `)
 
                 inputsArray.push(parseFloat(tempValuesInput));
