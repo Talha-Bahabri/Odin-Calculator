@@ -2,7 +2,10 @@
 
     const operationSelector = document.querySelector(".operation");
     const userInputSelector = document.querySelector(`.userInput`);
-    let tempValuesInput = 0 ;
+
+    let tempValuesInput = `` ;
+    let tempOperandInput = `` ;
+    let inputsArray = [0];
     
 //From this point i'll add all the  btns
 
@@ -21,14 +24,66 @@
     
         const btn1 = document.querySelector(`.btn1`);
         btn1.addEventListener("click" , () => {
-            userInputSelector.textContent = `1`;
+            tempValuesInput = tempValuesInput.concat(`1`);
+            userInputSelector.textContent = tempValuesInput;
         
                 });
         const btn2 = document.querySelector(`.btn2`);
         btn2.addEventListener("click" , () => {
-            userInputSelector.textContent = `2`;
+            tempValuesInput = tempValuesInput.concat(`2`);
+            userInputSelector.textContent = tempValuesInput;
         
                 });
+
+
+        const btnADD = document.querySelector(`.btnADD`);
+        btnADD.addEventListener("click" , () => {
+
+            tempOperandInput = `+`;
+            console.log(`+ button is clicked`);
+
+            //here it will check if there is already a operand , if yes ,it the input and get out
+            
+            // if(typeof inputsArray.at(-1) == `string`) {
+            //     console.log(`this is a string ,,, `)
+            //     return 0 ;
+            // }
+
+            if(tempValuesInput == `` ) {
+                console.log(`empty tempValuesInput`)
+                return 0 ;
+            }
+
+        
+            if(typeof inputsArray.at(-1) == `number`) {
+                console.log(`this is a NUMBERRRRRRR ,,, `)
+
+                inputsArray.push(parseFloat(tempValuesInput));
+                //the next 3 lines are only to display the operation 
+                tempValuesInput = tempValuesInput.concat(`+`);
+                userInputSelector.textContent = ``;
+                operationSelector.textContent = tempValuesInput;
+                
+                //this is to add the + sign to the array
+                inputsArray.push(tempOperandInput);
+
+                for(let i = 0; i < inputsArray.length; i++){
+                    console.log(inputsArray[i]);
+                    console.log(typeof inputsArray[i]);
+                  }
+
+                  tempValuesInput = ``;
+                  tempOperandInput = ``;
+
+            }   
+
+    
+                });  
+                
+                
+
+
+
         const btn3 = document.querySelector(`.btn3`);
         btn3.addEventListener("click" , () => {
             userInputSelector.textContent = `3`;
@@ -85,11 +140,7 @@
             userInputSelector.textContent = ` / `;
         
                 });
-        const btnADD = document.querySelector(`.btnADD`);
-        btnADD.addEventListener("click" , () => {
-            userInputSelector.textContent = ` + `;
         
-                });
         
         const btnSUB = document.querySelector(`.btnSUB`);
         btnSUB.addEventListener("click" , () => {
