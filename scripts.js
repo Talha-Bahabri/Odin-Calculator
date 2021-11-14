@@ -42,27 +42,20 @@
             tempOperandInput = `+`;
             console.log(`+ button is clicked`);
 
-            //here it will check if there is already a operand , if yes ,it the input and get out
-            
-            // if(typeof inputsArray.at(-1) == `string`) {
-            //     console.log(`this is a string ,,, `)
-            //     return 0 ;
-            // }
-
+            // if no value is entred ... it will not do anything
             if(tempValuesInput == `` ) {
                 console.log(`empty tempValuesInput`)
                 return 0 ;
             }
 
-        
+            //if the last elemnt in the is number, or not empty , it will enter and add the numbers , at the end 
+                                                    // it will add the operand 
             if(typeof inputsArray.at(-1) == `number` || tempValuesInput != '') {
                 console.log(`this is a NUMBERRRRRRR ,,, `)
 
                 inputsArray.push(parseFloat(tempValuesInput));
                 //the next 3 lines are only to display the operation 
-                tempValuesInput = tempValuesInput.concat(`+`);
-                userInputSelector.textContent = ``;
-                operationSelector.textContent = tempValuesInput;
+                displayText();
                 
                 //this is to add the + sign to the array
                 inputsArray.push(tempOperandInput);
@@ -149,6 +142,29 @@
                 });
         const btnEQL = document.querySelector(`.btnEQL`);
 
+
+
+
+
+
+        function operation () {
+
+        }
+
+        function displayText () {
+            tempValuesInput = tempValuesInput.concat(`+`);
+                userInputSelector.textContent = ``;
+
+                operationDisplayValues = ``;
+
+                for (i = 0; i < inputsArray.length; i++){
+                    operationDisplayValues = operationDisplayValues.concat(inputsArray[i]);
+                }
+
+                operationSelector.textContent = operationDisplayValues;
+        }
+
+        
 //here the btns funtions finishes.
 
 // a variable will hold the numbers as string and every num btn clicked will add to the string then change it to float
