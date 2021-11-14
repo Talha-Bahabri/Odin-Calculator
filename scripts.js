@@ -6,20 +6,15 @@
     let tempValuesInput = `` ;
     let tempOperandInput = `` ;
     let inputsArray = [];
+    let allArrayOnlyDisplay = [];
     
 //From this point i'll add all the  btns
 
     const btnCLR = document.querySelector(`.btnCLR`);
-    btnCLR.addEventListener("click" , () => {
-        operationSelector.textContent = ``;
-        userInputSelector.textContent = ``;
-      });
+    btnCLR.addEventListener("click" , clr );
 
     const btnDEL = document.querySelector(`.btnDEL`);
-    btnDEL.addEventListener("click" , () => {
-    userInputSelector.textContent = `DELETE ONE NUMBER FORM USERINPUT`;
-
-        });
+    btnDEL.addEventListener("click" , del );
 
     
         const btn1 = document.querySelector(`.btn1`);
@@ -96,7 +91,6 @@
         const btnADD = document.querySelector(`.btnADD`);
         btnADD.addEventListener("click" , () => {
             tempOperandInput = `+`;
-            console.log(`+ button is clicked`);
     
             conditionsForOperations();
 
@@ -106,7 +100,6 @@
         const btnMUL = document.querySelector(`.btnMUL`);
         btnMUL.addEventListener("click" , () => {
             tempOperandInput = `*`;
-            console.log(`* button is clicked`);
     
             conditionsForOperations();
 
@@ -114,7 +107,6 @@
         const btnDIV = document.querySelector(`.btnDIV`);
         btnDIV.addEventListener("click" , () => {
             tempOperandInput = `/`;
-            console.log(`/ button is clicked`);
     
             conditionsForOperations();
 
@@ -125,12 +117,11 @@
         const btnSUB = document.querySelector(`.btnSUB`);
         btnSUB.addEventListener("click" , () => {
             tempOperandInput = `-`;
-            console.log(`- button is clicked`);
     
             conditionsForOperations();
 
                 });
-                
+
         const btnEQL = document.querySelector(`.btnEQL`);
 
 
@@ -146,7 +137,8 @@
 
             //if the last elemnt in the is number, or not empty , it will enter and add the numbers , at the end 
                                                     // it will add the operand 
-            if(typeof inputsArray.at(-1) == `number` || tempValuesInput != '') {
+            // typeof inputsArray.at(-1) == `number` || 
+            if(tempValuesInput != '') {
                 operations();
                 
             }  
@@ -156,12 +148,63 @@
 
         function operations() {
             
-                inputsArray.push(parseFloat(tempValuesInput));
-                //the next 3 lines are only to display the operation 
-                displayText();
+            if (typeof inputsArray.at(-1) == `number`) {
                 
+                inputsArray.push(tempOperandInput);
+                allArrayOnlyDisplay.push(tempOperandInput);
+                displayText();
+                //this is to add the + sign to the array
+                inputsArray.push(parseFloat(tempValuesInput));
+                allArrayOnlyDisplay.push(parseFloat(tempValuesInput));
+            }
+            else {
+                inputsArray.push(parseFloat(tempValuesInput));
+                allArrayOnlyDisplay.push(parseFloat(tempValuesInput));
+                displayText();
                 //this is to add the + sign to the array
                 inputsArray.push(tempOperandInput);
+                allArrayOnlyDisplay.push(tempOperandInput);
+            }
+                
+
+                if( inputsArray.length >= 3) {
+                    console.log(`WE ARE IN THE OPERATIONS`)
+
+                    switch(tempOperandInput) {
+                        case `+`:
+                          result  = add();
+                          break;
+                        case `-`:
+                          result  = sub();
+                          break;
+                        case `*`:
+                          result  = mul();
+                          break;
+                        case `/`:
+                          result  = div();
+                          break;
+
+                        default:
+                          return 0
+                      } 
+
+
+                      while(inputsArray.length > 0) {
+                        inputsArray.pop();
+                    }
+                    for (i = 0; i < allArrayOnlyDisplay.length; i++){
+                        console.log(`elemnt ${allArrayOnlyDisplay[i]}`);
+                    }
+
+                      inputsArray.push(result);
+                      displayText();
+
+                      
+                }
+
+
+
+
 
                 for(let i = 0; i < inputsArray.length; i++){
                     console.log(inputsArray[i]);
@@ -175,9 +218,8 @@
 
 
         function displayText() {
-            tempValuesInput = tempValuesInput.concat(`+`);
+                tempValuesInput = tempValuesInput.concat(`+`);
                 userInputSelector.textContent = ``;
-
                 operationDisplayValues = ``;
 
                 for (i = 0; i < inputsArray.length; i++){
@@ -189,6 +231,41 @@
 
 
 
+        function add() {
+            let result = inputsArray[0] + inputsArray[2]; 
+            return result  ;
+        }
+        function sub() {
+            let result = inputsArray[0] - inputsArray[2]; 
+            return result  ;
+        }
+        function div() {
+            let result = inputsArray[0] / inputsArray[2]; 
+            return result  ;
+        }
+        function mul() {
+            let result = inputsArray[0] * inputsArray[2]; 
+            return result ;
+        }
+
+        function del() {
+            tempValuesInput = tempValuesInput.substring(0, tempValuesInput.length - 1);
+            userInputSelector.textContent = tempValuesInput;
+
+        }
+
+        function clr() {
+            operationSelector.textContent = ``;
+            userInputSelector.textContent = ``;
+            tempValuesInput = `` ;
+            tempOperandInput = `` ;
+            while(inputsArray.length > 0) {
+                inputsArray.pop();
+            }
+
+        }
+
+
 
 
 //here the btns funtions finishes.
@@ -197,12 +274,12 @@
 // will create an array , this array will hold the entered values IF AND ONLY IF one of the operations btns are clicked
 //      * The array would be like : array = ["1.5" , " + " , "10" , "-" , "20"] 
 //      * MAKE SURE THE USER CAN'T ENTER TWO OPERATIONS TOGETHER , to do that check if the last elemnt is num or OP
-//      * result = 0  num = 0  op = "" 
+//      * result = 0  num = 0  op = ""  = 
 //      * enter loop  for each elemnt , check if the elemnt is a number. num = elemnt CONTINUE to restart the loop
 //      * if you want you can check online how to check if the datatype are eql
-//      * the second elemnt will be OP , result = result OP num ... repeat
-//                      === for example  result = 1.5 + 10 
+//      * the second elemnt will be OP , result = result OP num ... repeat = 
+//                      === for example  result = 1.5 + 10  = 
 //      *
-// once the EQL operation is clicked the userInput will be removed and the result will be displayed there
+// once the EQL operation is clicked the userInput will be removed and the result will be displayed there = 
 
 
