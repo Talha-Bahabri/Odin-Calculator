@@ -35,12 +35,108 @@
         
                 });
 
+        const btn3 = document.querySelector(`.btn3`);
+        btn3.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`3`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+        const btn4 = document.querySelector(`.btn4`);
+        btn4.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`4`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+        const btn5 = document.querySelector(`.btn5`);
+        btn5.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`5`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+        const btn6 = document.querySelector(`.btn6`);
+        btn6.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`6`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+
+        const btn7 = document.querySelector(`.btn7`);
+        btn7.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`7`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+        const btn8 = document.querySelector(`.btn8`);
+        btn8.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`8`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+        const btn9 = document.querySelector(`.btn9`);
+        btn9.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`9`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+        const btn0 = document.querySelector(`.btn0`);
+        btn0.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`0`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+        const btnDOT = document.querySelector(`.btnDOT`);
+        btnDOT.addEventListener("click" , () => {
+            tempValuesInput = tempValuesInput.concat(`.`);
+            userInputSelector.textContent = tempValuesInput;
+        
+                });
+
+
 
         const btnADD = document.querySelector(`.btnADD`);
         btnADD.addEventListener("click" , () => {
-
             tempOperandInput = `+`;
             console.log(`+ button is clicked`);
+    
+            conditionsForOperations();
+
+                });          
+
+
+        const btnMUL = document.querySelector(`.btnMUL`);
+        btnMUL.addEventListener("click" , () => {
+            tempOperandInput = `*`;
+            console.log(`* button is clicked`);
+    
+            conditionsForOperations();
+
+                });
+        const btnDIV = document.querySelector(`.btnDIV`);
+        btnDIV.addEventListener("click" , () => {
+            tempOperandInput = `/`;
+            console.log(`/ button is clicked`);
+    
+            conditionsForOperations();
+
+        
+                });
+        
+        
+        const btnSUB = document.querySelector(`.btnSUB`);
+        btnSUB.addEventListener("click" , () => {
+            tempOperandInput = `-`;
+            console.log(`- button is clicked`);
+    
+            conditionsForOperations();
+
+                });
+                
+        const btnEQL = document.querySelector(`.btnEQL`);
+
+
+
+
+        function conditionsForOperations() {
 
             // if no value is entred ... it will not do anything
             if(tempValuesInput == `` ) {
@@ -51,8 +147,15 @@
             //if the last elemnt in the is number, or not empty , it will enter and add the numbers , at the end 
                                                     // it will add the operand 
             if(typeof inputsArray.at(-1) == `number` || tempValuesInput != '') {
-                console.log(`this is a NUMBERRRRRRR ,,, `)
+                operations();
+                
+            }  
+            
+        }
 
+
+        function operations() {
+            
                 inputsArray.push(parseFloat(tempValuesInput));
                 //the next 3 lines are only to display the operation 
                 displayText();
@@ -62,96 +165,16 @@
 
                 for(let i = 0; i < inputsArray.length; i++){
                     console.log(inputsArray[i]);
-                    console.log(typeof inputsArray[i]);
+                    // console.log(typeof inputsArray[i]);
                   }
 
                   tempValuesInput = ``;
                   tempOperandInput = ``;
 
-            }   
-
-    
-                });  
-                
-                
-
-
-
-        const btn3 = document.querySelector(`.btn3`);
-        btn3.addEventListener("click" , () => {
-            userInputSelector.textContent = `3`;
-        
-                });
-        const btn4 = document.querySelector(`.btn4`);
-        btn4.addEventListener("click" , () => {
-            userInputSelector.textContent = `4`;
-        
-                });
-        const btn5 = document.querySelector(`.btn5`);
-        btn5.addEventListener("click" , () => {
-            userInputSelector.textContent = `5`;
-        
-                });
-        const btn6 = document.querySelector(`.btn6`);
-        btn6.addEventListener("click" , () => {
-            userInputSelector.textContent = `6`;
-        
-                });
-
-        const btn7 = document.querySelector(`.btn7`);
-        btn7.addEventListener("click" , () => {
-            userInputSelector.textContent = `7`;
-        
-                });
-        const btn8 = document.querySelector(`.btn8`);
-        btn8.addEventListener("click" , () => {
-            userInputSelector.textContent = `8`;
-        
-                });
-        const btn9 = document.querySelector(`.btn9`);
-        btn9.addEventListener("click" , () => {
-            userInputSelector.textContent = `9`;
-        
-                });
-        const btn0 = document.querySelector(`.btn0`);
-        btn0.addEventListener("click" , () => {
-            userInputSelector.textContent = `0`;
-        
-                });
-        const btnDOT = document.querySelector(`.btnDOT`);
-        btnDOT.addEventListener("click" , () => {
-            userInputSelector.textContent = `.`;
-        
-                });
-        const btnMUL = document.querySelector(`.btnMUL`);
-        btnMUL.addEventListener("click" , () => {
-            userInputSelector.textContent = ` * `;
-        
-                });
-        const btnDIV = document.querySelector(`.btnDIV`);
-        btnDIV.addEventListener("click" , () => {
-            userInputSelector.textContent = ` / `;
-        
-                });
-        
-        
-        const btnSUB = document.querySelector(`.btnSUB`);
-        btnSUB.addEventListener("click" , () => {
-            userInputSelector.textContent = ` - `;
-        
-                });
-        const btnEQL = document.querySelector(`.btnEQL`);
-
-
-
-
-
-
-        function operation () {
-
         }
 
-        function displayText () {
+
+        function displayText() {
             tempValuesInput = tempValuesInput.concat(`+`);
                 userInputSelector.textContent = ``;
 
@@ -164,7 +187,10 @@
                 operationSelector.textContent = operationDisplayValues;
         }
 
-        
+
+
+
+
 //here the btns funtions finishes.
 
 // a variable will hold the numbers as string and every num btn clicked will add to the string then change it to float
