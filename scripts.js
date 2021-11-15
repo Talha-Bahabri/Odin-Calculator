@@ -128,9 +128,9 @@
 
         const btnEQL = document.querySelector(`.btnEQL`);
         btnEQL.addEventListener("click" , () => {
-            operand = `=`;
-
+            
             conditionsForOperations();
+            operand = ``;
 
 
                 });
@@ -165,7 +165,6 @@
                 tempValuesInput = ``;
                 console.log(`SECOND TIME  num2 = ${num2} type ${typeof(num2)} `)
                 operations();
-                displayText()
             }  
             
         }
@@ -188,30 +187,28 @@
                           result = sub();
                           break;
                         case `*`:
-                            console.log(`mul`);
-                          result = mul();
+                            console.log(`Mul`);
+                            result = mul();
                           break;
                         case `/`:
                             console.log(`div`);
                           result = div();
                           break;
-                        // case `=`:
-                        //   result = inputsArrayat.at(-1);
-                        //   break;
-
                         default:
                             console.log(`error`);
                             return 0
                           
                       } 
 
+                      console.log(`result = ${result} num1 = ${num1} num2 = ${num2}`);
+                      num1 = result;
+                      operationSelector.textContent = `${num1}`;
+                      userInputSelector.textContent = ``;
+                      // result = 0;
+
 
                 }
                 
-                console.log(`result = ${result} num1 = ${num1} num2 = ${num2}`)
-                operationSelector.textContent = `${result}`;
-                num1 = result;
-                // result = 0;
 
         
 
@@ -223,8 +220,8 @@
                     operationSelector.textContent = `${num1} ${operand} `;
                     userInputSelector.textContent = ``;
                     return 0;
-
                 }
+
                 userInputSelector.textContent = ``;
                 operationSelector.textContent = `${num1} ${operand} ${num2}`;
 
