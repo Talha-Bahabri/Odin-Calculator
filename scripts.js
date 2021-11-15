@@ -6,7 +6,6 @@
     let tempValuesInput = `` ;
     let tempOperandInput = `` ;
     let inputsArray = [];
-    let allArrayOnlyDisplay = [];
     
 //From this point i'll add all the  btns
 
@@ -123,6 +122,13 @@
                 });
 
         const btnEQL = document.querySelector(`.btnEQL`);
+        btnEQL.addEventListener("click" , () => {
+            tempOperandInput = `=`;
+
+            conditionsForOperations();
+
+
+                });
 
 
 
@@ -149,63 +155,59 @@
         function operations() {
             
             if (typeof inputsArray.at(-1) == `number`) {
+                console.log(`  secondtime`)
                 
                 inputsArray.push(tempOperandInput);
-                allArrayOnlyDisplay.push(tempOperandInput);
                 displayText();
                 //this is to add the + sign to the array
                 inputsArray.push(parseFloat(tempValuesInput));
-                allArrayOnlyDisplay.push(parseFloat(tempValuesInput));
             }
-            else {
+            else{
+                console.log(`first time`)
                 inputsArray.push(parseFloat(tempValuesInput));
-                allArrayOnlyDisplay.push(parseFloat(tempValuesInput));
                 displayText();
                 //this is to add the + sign to the array
                 inputsArray.push(tempOperandInput);
-                allArrayOnlyDisplay.push(tempOperandInput);
             }
                 
-
+            
                 if( inputsArray.length >= 3) {
                     console.log(`WE ARE IN THE OPERATIONS`)
-
-                    switch(tempOperandInput) {
+                    
+                    switch(inputsArray[1]) {
                         case `+`:
-                          result  = add();
+                          result = add();
                           break;
                         case `-`:
-                          result  = sub();
+                          result = sub();
                           break;
                         case `*`:
-                          result  = mul();
+                          result = mul();
                           break;
                         case `/`:
-                          result  = div();
+                          result = div();
                           break;
-
+                        case `=`:
+                          result = inputsArrayat.at(-1);
+                          break;
+                          
                         default:
-                          return 0
+                            return 0
+                          
                       } 
 
 
                       while(inputsArray.length > 0) {
+                        console.log(`${inputsArray.at(-1)} will be removed`)
                         inputsArray.pop();
                     }
-                    for (i = 0; i < allArrayOnlyDisplay.length; i++){
-                        console.log(`elemnt ${allArrayOnlyDisplay[i]}`);
-                    }
-
+                    
                       inputsArray.push(result);
-                      displayText();
+                      console.log(`${inputsArray.at(-1)} added`)
 
-                      
                 }
 
-
-
-
-
+                displayText();
                 for(let i = 0; i < inputsArray.length; i++){
                     console.log(inputsArray[i]);
                     // console.log(typeof inputsArray[i]);
@@ -223,7 +225,7 @@
                 operationDisplayValues = ``;
 
                 for (i = 0; i < inputsArray.length; i++){
-                    operationDisplayValues = operationDisplayValues.concat(inputsArray[i]);
+                    operationDisplayValues = operationDisplayValues.concat(` ${inputsArray[i]}`);
                 }
 
                 operationSelector.textContent = operationDisplayValues;
