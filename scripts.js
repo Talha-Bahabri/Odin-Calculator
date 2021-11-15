@@ -4,8 +4,13 @@
     const userInputSelector = document.querySelector(`.userInput`);
 
     let tempValuesInput = `` ;
-    let tempOperandInput = `` ;
-    let inputsArray = [];
+    // let inputsArray = [];
+    let num1 ;
+    let num2 ;
+    let operand = ``;
+    let result = 0  ;
+
+    let firstTime = true;
     
 //From this point i'll add all the  btns
 
@@ -89,7 +94,7 @@
 
         const btnADD = document.querySelector(`.btnADD`);
         btnADD.addEventListener("click" , () => {
-            tempOperandInput = `+`;
+            operand = `+`;
     
             conditionsForOperations();
 
@@ -98,14 +103,14 @@
 
         const btnMUL = document.querySelector(`.btnMUL`);
         btnMUL.addEventListener("click" , () => {
-            tempOperandInput = `*`;
+            operand = `*`;
     
             conditionsForOperations();
 
                 });
         const btnDIV = document.querySelector(`.btnDIV`);
         btnDIV.addEventListener("click" , () => {
-            tempOperandInput = `/`;
+            operand = `/`;
     
             conditionsForOperations();
 
@@ -115,7 +120,7 @@
         
         const btnSUB = document.querySelector(`.btnSUB`);
         btnSUB.addEventListener("click" , () => {
-            tempOperandInput = `-`;
+            operand = `-`;
     
             conditionsForOperations();
 
@@ -123,7 +128,7 @@
 
         const btnEQL = document.querySelector(`.btnEQL`);
         btnEQL.addEventListener("click" , () => {
-            tempOperandInput = `=`;
+            operand = `=`;
 
             conditionsForOperations();
 
@@ -145,8 +150,22 @@
                                                     // it will add the operand 
             // typeof inputsArray.at(-1) == `number` || 
             if(tempValuesInput != '') {
+                if(firstTime) {
+                    num1 = parseFloat(tempValuesInput);
+                    console.log(`FIRST TIME num1 = ${num1} type ${typeof(num1)}`)
+
+                    displayText()
+                    firstTime = false;
+                    tempValuesInput = ``;
+                    return 0 ;
+                }
+
+                num2 = parseFloat(tempValuesInput);
+
+                tempValuesInput = ``;
+                console.log(`SECOND TIME  num2 = ${num2} type ${typeof(num2)} `)
                 operations();
-                
+                displayText()
             }  
             
         }
@@ -154,100 +173,86 @@
 
         function operations() {
             
-            if (typeof inputsArray.at(-1) == `number`) {
-                console.log(`  secondtime`)
-                
-                inputsArray.push(tempOperandInput);
-                displayText();
-                //this is to add the + sign to the array
-                inputsArray.push(parseFloat(tempValuesInput));
-            }
-            else{
-                console.log(`first time`)
-                inputsArray.push(parseFloat(tempValuesInput));
-                displayText();
-                //this is to add the + sign to the array
-                inputsArray.push(tempOperandInput);
-            }
-                
-            
-                if( inputsArray.length >= 3) {
-                    console.log(`WE ARE IN THE OPERATIONS`)
-                    
-                    switch(inputsArray[1]) {
+            // if (num2 == '') {
+            //     return 0;
+            // }
+
+                    switch(operand) {
                         case `+`:
+                            console.log(`add`);
                           result = add();
+                          console.log(`${result}`)
                           break;
                         case `-`:
+                            console.log(`sub`);
                           result = sub();
                           break;
                         case `*`:
+                            console.log(`mul`);
                           result = mul();
                           break;
                         case `/`:
+                            console.log(`div`);
                           result = div();
                           break;
-                        case `=`:
-                          result = inputsArrayat.at(-1);
-                          break;
-                          
+                        // case `=`:
+                        //   result = inputsArrayat.at(-1);
+                        //   break;
+
                         default:
+                            console.log(`error`);
                             return 0
                           
                       } 
 
 
-                      while(inputsArray.length > 0) {
-                        console.log(`${inputsArray.at(-1)} will be removed`)
-                        inputsArray.pop();
-                    }
-                    
-                      inputsArray.push(result);
-                      console.log(`${inputsArray.at(-1)} added`)
-
                 }
+                
+                console.log(`result = ${result} num1 = ${num1} num2 = ${num2}`)
+                operationSelector.textContent = `${result}`;
+                num1 = result;
+                // result = 0;
 
-                displayText();
-                for(let i = 0; i < inputsArray.length; i++){
-                    console.log(inputsArray[i]);
-                    // console.log(typeof inputsArray[i]);
-                  }
-
-                  tempValuesInput = ``;
-                  tempOperandInput = ``;
-
-        }
+        
 
 
         function displayText() {
-                tempValuesInput = tempValuesInput.concat(`+`);
-                userInputSelector.textContent = ``;
-                operationDisplayValues = ``;
 
-                for (i = 0; i < inputsArray.length; i++){
-                    operationDisplayValues = operationDisplayValues.concat(` ${inputsArray[i]}`);
+            operationSelector.textContent = ``;
+                if (firstTime) {
+                    operationSelector.textContent = `${num1} ${operand} `;
+                    userInputSelector.textContent = ``;
+                    return 0;
+
                 }
+                userInputSelector.textContent = ``;
+                operationSelector.textContent = `${num1} ${operand} ${num2}`;
 
-                operationSelector.textContent = operationDisplayValues;
+
+
+                // tempValuesInput = tempValuesInput.concat(`+`);
+                // userInputSelector.textContent = ``;
+
+                // for (i = 0; i < inputsArray.length; i++){
+                //     operationDisplayValues = operationDisplayValues.concat(` ${inputsArray[i]}`);
+                // }
+
+                // operationSelector.textContent = operationDisplayValues;
         }
 
 
 
         function add() {
-            let result = inputsArray[0] + inputsArray[2]; 
-            return result  ;
+            return num1 + num2;  
         }
         function sub() {
-            let result = inputsArray[0] - inputsArray[2]; 
-            return result  ;
+            return num1 - num2; 
         }
         function div() {
-            let result = inputsArray[0] / inputsArray[2]; 
-            return result  ;
+            return  num1 / num2; 
         }
         function mul() {
-            let result = inputsArray[0] * inputsArray[2]; 
-            return result ;
+            return  num1 * num2;  
         }
 
         function del() {
@@ -260,10 +265,10 @@
             operationSelector.textContent = ``;
             userInputSelector.textContent = ``;
             tempValuesInput = `` ;
-            tempOperandInput = `` ;
-            while(inputsArray.length > 0) {
-                inputsArray.pop();
-            }
+            num1 = ``;
+            num2 = ``;
+            operand = ``;
+            result = ``;
 
         }
 
