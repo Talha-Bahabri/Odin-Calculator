@@ -9,15 +9,13 @@
 
 
 .display {
+    font-size: 15px;;
     display: grid;
     justify-content: end;
     padding-right: 10px;
     background-color:  rgb(255, 255, 255);
     border: 2px black solid;
     border-radius: 10px;
-
-    max-width: 20fr;
-    min-width: 20fr;
     
 }
 
@@ -64,11 +62,11 @@
     color: blue;
 }
 .btnCLR{
-    color: hotpink;
+    /* color: hotpink; */
 }
 
 .btnDEL{
-    color: yellow;
+    /* color: yellow; */
 }
 
 

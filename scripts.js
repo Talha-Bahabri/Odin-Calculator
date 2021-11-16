@@ -8,7 +8,7 @@
     let num1 ;
     let num2 ;
     let operand = ``;
-    let result = 0  ;
+    let result = 0 ;
 
     let firstTime = true;
     
@@ -94,25 +94,35 @@
 
         const btnADD = document.querySelector(`.btnADD`);
         btnADD.addEventListener("click" , () => {
+
+            if(firstTime){
             operand = `+`;
-    
+            }
             conditionsForOperations();
+
+            operand = `+`;
 
                 });          
 
 
         const btnMUL = document.querySelector(`.btnMUL`);
         btnMUL.addEventListener("click" , () => {
+            if(firstTime){
             operand = `*`;
+            }
     
             conditionsForOperations();
+            operand = `*`;
 
                 });
         const btnDIV = document.querySelector(`.btnDIV`);
         btnDIV.addEventListener("click" , () => {
+            if(firstTime){
             operand = `/`;
+            }
     
             conditionsForOperations();
+            operand = `/`;
 
         
                 });
@@ -120,15 +130,19 @@
         
         const btnSUB = document.querySelector(`.btnSUB`);
         btnSUB.addEventListener("click" , () => {
+            if(firstTime){
             operand = `-`;
+            }
     
             conditionsForOperations();
+            operand = `-`;
 
                 });
 
         const btnEQL = document.querySelector(`.btnEQL`);
         btnEQL.addEventListener("click" , () => {
             
+            operand = `=`;
             conditionsForOperations();
             operand = ``;
 
@@ -194,6 +208,15 @@
                             console.log(`div`);
                           result = div();
                           break;
+
+                        //   case `=`:
+                        //     console.log(`eql`);
+                        //     console.log(`result = ${result} num1 = ${num1} num2 = ${num2}`);
+                        //     num1 = result;
+                        //     operationSelector.textContent = `${num1}`;
+                        //     userInputSelector.textContent = ``;
+                        //     return 0
+                        //   break;
                         default:
                             console.log(`error`);
                             return 0
@@ -202,16 +225,12 @@
 
                       console.log(`result = ${result} num1 = ${num1} num2 = ${num2}`);
                       num1 = result;
-                      operationSelector.textContent = `${num1}`;
+                      operationSelector.textContent = `${num1} ${operand}`;
                       userInputSelector.textContent = ``;
                       // result = 0;
 
 
                 }
-                
-
-        
-
 
         function displayText() {
 
