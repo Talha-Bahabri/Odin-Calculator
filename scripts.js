@@ -96,10 +96,11 @@
 
         const btnADD = document.querySelector(`.btnADD`);
         btnADD.addEventListener("click" , () => {
-
+                // this firstTime is only for showing the sign when entering for first time
             if(firstTime){
-            operand = `+`;
-            }
+                operand = `+`;
+                }
+
             conditionsForOperations();
 
             operand = `+`;
@@ -188,37 +189,22 @@
 
         function operations() {
             
-            // if (num2 == '') {
-            //     return 0;
-            // }
 
                     switch(operand) {
                         case `+`:
-                            console.log(`add`);
+                            
                           result = add();
-                          console.log(`${result}`)
                           break;
                         case `-`:
-                            console.log(`sub`);
                           result = sub();
                           break;
                         case `*`:
-                            console.log(`Mul`);
                             result = mul();
                           break;
                         case `/`:
-                            console.log(`div`);
                           result = div();
                           break;
 
-                        //   case `=`:
-                        //     console.log(`eql`);
-                        //     console.log(`result = ${result} num1 = ${num1} num2 = ${num2} ${operand}`);
-                        //     num1 = result;
-                        //     operationSelector.textContent = `${num1}`;
-                        //     userInputSelector.textContent = ``;
-                        //     return 0
-                        //   break;
                         default:
                             console.log(`${operand}`)
                             console.log(`error`);
@@ -255,16 +241,6 @@
                 userInputSelector.textContent = ``;
                 operationSelector.textContent = `${num1} ${operand} ${num2}`;
 
-
-
-                // tempValuesInput = tempValuesInput.concat(`+`);
-                // userInputSelector.textContent = ``;
-
-                // for (i = 0; i < inputsArray.length; i++){
-                //     operationDisplayValues = operationDisplayValues.concat(` ${inputsArray[i]}`);
-                // }
-
-                // operationSelector.textContent = operationDisplayValues;
         }
 
 
@@ -296,6 +272,9 @@
             num2 = ``;
             operand = ``;
             result = ``;
+            tempValuesInput = `` ;
+            firstTime = true;
+            isEqlPressed = false;
 
         }
 

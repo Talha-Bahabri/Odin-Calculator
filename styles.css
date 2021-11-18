@@ -3,19 +3,26 @@
   .conainer {
     display: grid;
     justify-content: center;
-    /* flex-direction: column; */
-    background-color: green;
+    /* border: 2px black solid; */
 }
 
 
 .display {
-    font-size: 15px;;
+    font-size: 20px;
+    font-weight: bolder;
     display: grid;
-    justify-content: end;
-    padding-right: 10px;
-    background-color:  rgb(255, 255, 255);
+    justify-content: start;
+    grid-template-columns: 5px ;
+    grid-template-columns: 5px ;
+    overflow: auto;
+    padding-right: 5px;
+    padding-left: 5px;
+    padding-top: 10px;
     border: 2px black solid;
-    border-radius: 10px;
+    border-radius: 2px;
+    min-width: 100px;
+    min-height: 100px;
+
     
 }
 
@@ -25,49 +32,24 @@
     grid-template-rows: 6ch 6ch 6ch 6ch;
     justify-content: center;
     align-items: center;
-
-
-
     background-color: gray;
     gap: 5px;
-
-    /* margin-left: 10px;
-    margin-right: 10px; */
     margin-bottom: 10px;
-
-
-
+    margin-top: 10px;
     border: 2px black solid;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 
-.conainer > * :nth-child(6) {
-    background-color: red;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
 
 
 .buttons{
+    font-size: 20px;
+    font-weight: bolder;
     margin: 3px;
-
-    font-size:  15px;
-    padding: 10px;
+    padding: 10px; 
 }
 
-.operation { 
-    color: indianred;
-}
 
-.userInput {
-    color: blue;
-}
-.btnCLR{
-    /* color: hotpink; */
-}
-
-.btnDEL{
-    /* color: yellow; */
-}
 
 
 
