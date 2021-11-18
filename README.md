@@ -1,2 +1,2 @@
 # Odin-Calculator
-a Calculator page 
+A very simple calculator.
