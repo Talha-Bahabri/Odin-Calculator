@@ -11,6 +11,8 @@
     let result = 0 ;
 
     let firstTime = true;
+
+    let isEqlPressed = false;
     
 //From this point i'll add all the  btns
 
@@ -142,7 +144,7 @@
         const btnEQL = document.querySelector(`.btnEQL`);
         btnEQL.addEventListener("click" , () => {
             
-            operand = `=`;
+            isEqlPressed = true;
             conditionsForOperations();
             operand = ``;
 
@@ -211,13 +213,14 @@
 
                         //   case `=`:
                         //     console.log(`eql`);
-                        //     console.log(`result = ${result} num1 = ${num1} num2 = ${num2}`);
+                        //     console.log(`result = ${result} num1 = ${num1} num2 = ${num2} ${operand}`);
                         //     num1 = result;
                         //     operationSelector.textContent = `${num1}`;
                         //     userInputSelector.textContent = ``;
                         //     return 0
                         //   break;
                         default:
+                            console.log(`${operand}`)
                             console.log(`error`);
                             return 0
                           
@@ -225,7 +228,15 @@
 
                       console.log(`result = ${result} num1 = ${num1} num2 = ${num2}`);
                       num1 = result;
-                      operationSelector.textContent = `${num1} ${operand}`;
+
+                      if(isEqlPressed) {
+                        operationSelector.textContent = `${num1}`;
+                        isEqlPressed = false;
+                      }
+                      else {
+                        operationSelector.textContent = `${num1} ${operand}`;
+                      }
+
                       userInputSelector.textContent = ``;
                       // result = 0;
 
