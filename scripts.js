@@ -9,9 +9,7 @@
     let num2 ;
     let operand = ``;
     let result = 0 ;
-
     let firstTime = true;
-
     let isEqlPressed = false;
     
 //From this point i'll add all the  btns
