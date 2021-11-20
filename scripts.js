@@ -35,73 +35,148 @@
         btn1.addEventListener("click" , function(e) {
             onNumberClick(1);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `1`) {
+               onNumberClick(1);
+            }
+          });
 
 
         const btn2 = document.querySelector(`.btn2`);
         btn2.addEventListener("click" , function(e) {
             onNumberClick(2);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `2` ) {
+               onNumberClick(2);
+            }
+          });
 
         const btn3 = document.querySelector(`.btn3`);
         btn3.addEventListener("click" , function(e) {
             onNumberClick(3);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `3`) {
+               onNumberClick(3);
+            }
+          });
         const btn4 = document.querySelector(`.btn4`);
         btn4.addEventListener("click" , function(e) {
             onNumberClick(4);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `4`) {
+               onNumberClick(4);
+            }
+          });
         const btn5 = document.querySelector(`.btn5`);
         btn5.addEventListener("click" ,function(e) {
             onNumberClick(5);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `5` ) {
+               onNumberClick(5);
+            }
+          });
         const btn6 = document.querySelector(`.btn6`);
         btn6.addEventListener("click" ,function(e) {
             onNumberClick(6);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `6`) {
+               onNumberClick(6);
+            }
+          });
 
         const btn7 = document.querySelector(`.btn7`);
         btn7.addEventListener("click" ,function(e) {
             onNumberClick(7);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `7`) {
+               onNumberClick(7);
+            }
+          });
         const btn8 = document.querySelector(`.btn8`);
         btn8.addEventListener("click" ,function(e) {
             onNumberClick(8);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `8`) {
+               onNumberClick(8);
+            }
+          });
         const btn9 = document.querySelector(`.btn9`);
         btn9.addEventListener("click" ,function(e) {
             onNumberClick(9);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `9`) {
+               onNumberClick(9);
+            }
+          });
         const btn0 = document.querySelector(`.btn0`);
         btn0.addEventListener("click" ,function(e) {
             onNumberClick(0);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `0`) {
+               onNumberClick(0);
+            }
+          });
         const btnDOT = document.querySelector(`.btnDOT`);
         btnDOT.addEventListener("click" ,function(e) {
             onNumberClick(`.`);
         });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `.`) {
+               onNumberClick(`.`);
+            }
+          });
 
 
 
         const btnADD = document.querySelector(`.btnADD`);
         btnADD.addEventListener("click" , function(e) {
             onOperandClick(`+`);
-        });          
+        });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `+`) {
+                onOperandClick(`+`);
+            }
+          });          
 
 
         const btnMUL = document.querySelector(`.btnMUL`);
         btnMUL.addEventListener("click" , function(e) {
             onOperandClick(`*`);
         }); 
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `*`) {
+                onOperandClick(`*`);
+            }
+          });  
 
         const btnDIV = document.querySelector(`.btnDIV`);
         btnDIV.addEventListener("click" , function(e) {
             onOperandClick(`/`);
-        });       
+        });   
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `/`) {
+                onOperandClick(`/`);
+            }
+          });      
 
         const btnSUB = document.querySelector(`.btnSUB`);
         btnSUB.addEventListener("click" , function(e) {
             onOperandClick(`-`);
-        });       
+        });     
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `-`) {
+                onOperandClick(`-`);
+            }
+          });    
 
         const btnEQL = document.querySelector(`.btnEQL`);
         btnEQL.addEventListener("click" , () => {
@@ -112,6 +187,13 @@
 
 
                 });
+        window.addEventListener("keydown", (event) => {
+            if (event.key == `Enter` || event.key == `=` ) {
+                isEqlPressed = true;
+                conditionsForOperations();
+                operand = ``;
+            }
+          });  
 
  
 
