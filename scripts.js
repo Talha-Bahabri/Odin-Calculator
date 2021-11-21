@@ -1,6 +1,4 @@
-
-
-    const operationSelector = document.querySelector(".operation");
+ const operationSelector = document.querySelector(".operation");
     const userInputSelector = document.querySelector(`.userInput`);
 
     let tempValuesInput = `` ;
@@ -204,12 +202,10 @@
         }
 
         function onOperandClick(theOperand) {
-            if(firstTime){
+            
             operand = `${theOperand}`;
-            }
     
             conditionsForOperations();
-            operand = `${theOperand}`;
 
         }
 
