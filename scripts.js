@@ -8,13 +8,7 @@
     let result = 0 ;
     let firstTime = true;
     let isEqlPressed = false;
-    
-//From this point i'll add all the  btns
-// window.addEventListener(`keydown`, (event) => { 
-//     if (event.key == `Backspace`) {
-//         alert(`bababoya`);
-//     }
-// });
+
 
     const btnCLR = document.querySelector(`.btnCLR`);
     btnCLR.addEventListener("click" , clr );
@@ -277,7 +271,6 @@
                       }
 
                       userInputSelector.textContent = ``;
-                      // result = 0;
 
 
                 }
